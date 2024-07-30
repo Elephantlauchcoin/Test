@@ -3,16 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const walletAddress = document.getElementById('walletAddress');
 
     connectButton.addEventListener('click', async () => {
-        if (window.ethereum) {
+        if (typeof window.ethereum !== 'undefined') {
             try {
                 // Meminta akses ke akun wallet
-                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 
                 // Menginisialisasi Web3 dengan provider MetaMask
                 const web3 = new Web3(window.ethereum);
-
+                
                 // Mendapatkan alamat akun wallet
-                const accounts = await web3.eth.getAccounts();
                 walletAddress.innerText = `Connected: ${accounts[0]}`;
             } catch (error) {
                 console.error("Error connecting wallet:", error);
