@@ -30,3 +30,7 @@ button:hover {
     margin-top: 20px;
     font-size: 18px;
 }
+
+form {
+    margin-top: 20px;
+}
