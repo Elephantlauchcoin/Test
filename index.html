@@ -3,22 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presale Coin</title>
+    <title>Xiio Staking</title>
     <link rel="stylesheet" href="styles.css">
+       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+       <link rel="manifest" href="/manifest.json">
+       <script>
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(function(registration) {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(function(error) {
+                console.log('Service Worker registration failed:', error);
+            });
+    });
+}
+</script>
+    <script
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Presale Coin</h1>
-        <button id="connectWallet">Connect Wallet</button>
-        <div id="walletAddress"></div>
-        <form id="presaleForm" style="display:none;">
-            <label for="amount">Amount of MATIC:</label>
-            <input type="number" id="amount" name="amount" min="0.01" step="0.01">
-            <button type="submit">Buy Tokens</button>
-        </form>
-    </div>
+    <header class="navbar">
+        <div class="logo">Xiio</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Propil"></a>Propil</li>
+                <li>Tema<a href="Tema"></a></li>
+                <li><a href="#Bahasa">bahasa</a></li>
+                <li><a href="pengaturan">pengaturan</a></li>
+                <li><a href="Login/Logut.html">Login/Loguot</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleHamburger()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
 
-    <script src="https://cdn.jsdelivr.net/npm/web3@1.6.1/dist/web3.min.js"></script>
+    <section class="hero">
+        <h1>Xiio Staking</h1>
+        <p>Stake your Xiio tokens and earn rewards over time.</p>
+        <div class="staking-info">
+            <h2>Staking Details</h2>
+            <div class="staking-box">
+                <label for="stake-amount">Amount to Stake:</label>
+                <input type="number" id="stake-amount" name="stake-amount" min="1">
+            </div>
+            <div class="staking-details">
+                <p>Staking Period: 1 days</p>
+                <p>Annual Interest Rate: 15%</p>
+                <p>Minimum Stake: 100 Xiio Tokens</p>
+            </div>
+            <div class="staking-actions">
+                <button onclick="connectWallet()">Connect Wallet</button>
+                <button id="stake-button" onclick="toggleStake()">Stake Tokens</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="proposal-section">
+        <h2>Proposal System</h2>
+        <form id="createProposalForm" class="proposal-form">
+            <h3>Create a New Proposal</h3>
+            <label for="recipient">Recipient Address:</label>
+            <input type="text" id="recipient" name="recipient" required>
+            <button type="submit">Create Proposal</button>
+        </form>
+
+        <div id="proposalList" class="proposal-list">
+            <h3>Existing Proposals</h3>
+            <!-- Proposal items will be inserted here dynamically -->
+        </div>
+
+        <form id="voteForm" class="vote-form">
+            <h3>Vote on a Proposal</h3>
+            <label for="proposalId">Proposal ID:</label>
+            <input type="number" id="proposalId" name="proposalId" required>
+            <button type="submit">Vote</button>
+        </form>
+    </section>
+
+    <section class="proposal-submission">
+        <h2>Submit Your Proposal</h2>
+        <form id="proposal-form">
+            <h3>Create a New Proposal</h3>
+            <label for="proposal-title">Proposal Title:</label>
+            <input type="text" id="proposal-title" name="proposal-title" required>
+
+            <label for="proposal-description">Proposal Description:</label>
+            <textarea id="proposal-description" name="proposal-description" rows="5" required></textarea>
+
+            <button type="submit">Submit Proposal</button>
+        </form>
+    </section>
+    
+     <section id="crypto-loan" class="hero">
+        <div class="container">
+            <h1 class="section-title">Crypto Loan</h1>
+            <div class="loan-info">
+                <p class="description">
+                    Unlock the power of your crypto assets with our crypto loan service. Borrow against your holdings without selling your crypto.
+                </p>
+                <ul class="benefits">
+                    <li>Low Interest Rates</li>
+                    <li>Flexible Repayment Terms</li>
+                    <li>No Credit Checks</li>
+                </ul>
+            </div>
+            <div class="loan-form">
+                <h2>Apply for a Loan</h2>
+                <form action="#">
+                    <label for="crypto-type">Select Crypto Type:</label>
+                    <select id="crypto-type" name="crypto-type">
+                        <option value="bitcoin">Bitcoin</option>
+                        <option value="ethereum">Ethereum</option>
+                        <option value ="BNB">BNB</option>
+                        <option value="usdt">USDT</option>
+                    </select>
+                    <label for="loan-amount">Loan Amount:</label>
+                    <input type="number" id="loan-amount" name="loan-amount" placeholder="Enter amount" required>
+                    <label for="repayment-term">Repayment Term:</label>
+                    <select id="repayment-term" name="repayment-term">
+                        <option value="1-month">1 Month</option>
+                        <option value="3-months">3 Months</option>
+                        <option value="6-months">6 Months</option>
+                        <option value="12-months">12 Months</option>
+                    </select>
+                    <button type="submit">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <section class="chart-section">
+        <h2>Price Chart Xiio</h2>
+        <canvas id="priceChart"></canvas>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Xiio Project. All rights reserved.</p>
+    </footer>
     <script src="script.js"></script>
 </body>
         </html>
